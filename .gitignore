@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# xcodegen 生成的工程（由 project.yml 生成，不入库）
+FinderQuickActions.xcodeproj/
+
+# 构建产物
+build/
+DerivedData/
+*.dSYM
+*.xcuserstate
+xcuserdata/
+
+# 日志与临时文件
+*.log

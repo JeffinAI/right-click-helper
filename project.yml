@@ -1,0 +1,53 @@
+name: FinderQuickActions
+options:
+  bundleIdPrefix: com.finderquickactions
+  deploymentTarget:
+    macOS: "13.0"
+targets:
+  FinderQuickActions:
+    type: application
+    platform: macOS
+    sources:
+      - FinderQuickActions
+    dependencies:
+      - target: FinderQuickActionsFinderExtension
+        embed: true
+    info:
+      path: FinderQuickActions/Info.plist
+      properties:
+        CFBundleDisplayName: 右键助手
+        CFBundleName: 右键助手
+        CFBundleIconFile: AppIcon
+        CFBundleVersion: 2
+        CFBundleShortVersionString: "1.1"
+        CFBundleDevelopmentRegion: zh-Hans
+        CFBundleLocalizations:
+          - zh-Hans
+          - en
+        CFBundleAllowMixedLocalizations: true
+        LSUIElement: true
+        NSHumanReadableCopyright: "Finder 右键增强工具"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.finderquickactions.app
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_ENTITLEMENTS: FinderQuickActions/FinderQuickActions.entitlements
+        ENABLE_HARDENED_RUNTIME: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "5.0"
+    scheme:
+      gatherCoverageData: false
+  FinderQuickActionsFinderExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - FinderQuickActionsFinderExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.finderquickactions.app.FinderExtension
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_ENTITLEMENTS: FinderQuickActionsFinderExtension/FinderQuickActionsFinderExtension.entitlements
+        ENABLE_HARDENED_RUNTIME: NO
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: FinderQuickActionsFinderExtension/Info.plist
+        SWIFT_VERSION: "5.0"
